@@ -28,12 +28,10 @@ def to_hms(seconds: int): #-> list:
     minutes = 0 
     hours = 0
   
-    if "." not in str(seconds) and str(seconds).isdigit() and int(seconds) > 0 and not type(seconds) == str:
-        minutes , seconds = divmod(int(seconds), 60)
-        hours , minutes = divmod(int(minutes), 60)
-        hours = int(hours)
-        result = [int(hours), int(minutes), int(seconds)]
-        return print(result)
+    if "." not in str(seconds) and int(seconds) > 0 and not type(seconds)==str:
+        minutes , seconds = divmod(seconds, 60)
+        hours , minutes = divmod(minutes, 60)
+        return [hours, minutes, seconds]
         
     else:
         return print("Unsupported input type.")
